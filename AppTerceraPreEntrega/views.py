@@ -8,13 +8,67 @@ def inicio(req):
     return render(req, "AppTerceraPreEntrega/inicio.html")
 
 def videojuegos(req):
-    return render(req, "AppTerceraPreEntrega/videojuegos.html")
+
+    if req.method == "POST":
+
+        videojuegos_form = forms.VideojuegosForm(req.POST)
+
+        if videojuegos_form.is_valid():
+            videojuegos_info = videojuegos_form.cleaned_data
+            nuevo_videojuego = models.Videojuegos(
+                                        videojuego=videojuegos_info["videojuego"],
+                                        consola=videojuegos_info["consola"],
+                                        genero=videojuegos_info["genero"],
+                                        coleccion=videojuegos_info["coleccion"])
+            nuevo_videojuego.save()
+            return redirect("inicio")
+    
+    else:
+        videojuegos_form = forms.VideojuegosForm()
+
+    return render(req, "AppTerceraPreEntrega/videojuegos.html", {"formulario_videojuegos": videojuegos_form})
 
 def series(req):
-    return render(req, "AppTerceraPreEntrega/series.html")
+
+    if req.method == "POST":
+
+        series_form = forms.SeriesForm(req.POST)
+
+        if series_form.is_valid():
+            series_info = series_form.cleaned_data
+            nueva_series = models.Series(
+                                        serie=series_info["serie"],
+                                        lanzamiento=series_info["lanzamiento"],
+                                        plataforma=series_info["plataforma"])
+            nueva_series.save()
+            return redirect("inicio")
+    
+    else:
+        series_form = forms.SeriesForm()
+
+    return render(req, "AppTerceraPreEntrega/series.html", {"formulario_series": series_form})
+
 
 def pintura(req):
-    return render(req, "AppTerceraPreEntrega/pintura.html")
+
+    if req.method == "POST":
+
+        pintura_form = forms.PinturaForm(req.POST)
+
+        if pintura_form.is_valid():
+            pintura_info = pintura_form.cleaned_data
+            nueva_pintura = models.Pintura(
+                                        pintura=pintura_info["pintura"],
+                                        autor=pintura_info["autor"],
+                                        estilo=pintura_info["estilo"],
+                                        valor=pintura_info["valor"])
+            nueva_pintura.save()
+            return redirect("inicio")
+    
+    else:
+        pintura_form = forms.PinturaForm()
+
+    return render(req, "AppTerceraPreEntrega/pintura.html", {"formulario_pintura": pintura_form})
 
 def musica(req):
 

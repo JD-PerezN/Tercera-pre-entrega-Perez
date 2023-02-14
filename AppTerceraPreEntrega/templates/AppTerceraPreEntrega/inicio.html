@@ -1,11 +1,11 @@
 {% extends 'AppTerceraPreEntrega/base.html' %}
 
 {% block titulo %}
-    Musica
+    Inicio
 {% endblock titulo %}
 
 {% block header_text %}
-    Bienvenidos musica
+    Página de inicio
 {% endblock header_text %}
 
 {% block contenido %}
@@ -13,14 +13,33 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Bienvenido a musica</h1>
+                        <h1>Bienvenido a la página de inicio del proyecto</h1>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-2">
+                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                            <h3>Búsqueda de canciones por premios !!</h3>
+                            <p class="lead mb-0">En este apartado buscar las canciones por premios</p>
+                            <a href="{% url 'pintura' %}">Canciones por premios</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-2">
+                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                            <h3>Búsqueda de pintura por valor !!</h3>
+                            <p class="lead mb-0">En este apartado buscar las canciones por premios</p>
+                            <a href="{% url 'musica' %}">Canciones por premios</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-2">
+                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                            <h3>Búsqueda de canciones por premios !!</h3>
+                            <p class="lead mb-0">En este apartado buscar las canciones por premios</p>
+                            <a href="{% url 'series' %}">Canciones por premios</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <section>
-            <h1>Inicio cambiado</h1>
-            <p>Heredado de padre</p>
-            <h3>Nueva linea de texto</h3>
         </section>
 {% endblock contenido %}
