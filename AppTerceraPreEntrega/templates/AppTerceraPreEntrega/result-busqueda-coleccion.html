@@ -1,11 +1,11 @@
 {% extends 'AppTerceraPreEntrega/base.html' %}
 
 {% block titulo %}
-    Pestaña Musica
+    Pestaña coleccion videojuegos
 {% endblock titulo %}
 
 {% block header_text %}
-    Resultados búsqueda premios música
+    Resultados búsqueda colección videojuegos
 {% endblock header_text %}
 
 {% block contenido %}
@@ -13,13 +13,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>En esta página se valida aquellas canciones que tengan una determinada cantidad de premios</h1>
+                    <h1>En esta página se valida aquellos videojuegos que se encuentran en una colección</h1>
                 </div>
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-2">
                         <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
                         <h3>Resultados</h3>
-                        <p class="lead mb-0">Canciones que están en tu colección {{ coleccion }}</p>
+                        <p class="lead mb-0">Videojuegos que están en tu colección {{ coleccion }}</p>
                     </div>
                     <div class="col-lg-12">
                             {% if videojuegos %}
