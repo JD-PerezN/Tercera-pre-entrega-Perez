@@ -5,14 +5,14 @@ class Videojuegos(models.Model):
 
     videojuego = models.CharField(max_length=50)
     consola = models.CharField(max_length=50)
-    es_digital = models.BooleanField()
+    genero = models.CharField(max_length=50)
+    coleccion = models.IntegerField()
 
 class Series(models.Model):
 
     serie = models.CharField(max_length=50)
     lanzamiento = models.DateField()
-    en_emision = models.BooleanField()
-    gano_oscar = models.BooleanField()
+    plataforma = models.CharField(max_length=50)
 
 class Musica(models.Model):
 
@@ -20,7 +20,7 @@ class Musica(models.Model):
     artista = models.CharField(max_length=50)
     genero = models.CharField(max_length=50)
     lanzamiento = models.DateField()
-    gano_premio = models.BooleanField()
+    premios = models.IntegerField(default=0)
 
 class Pintura(models.Model):
 
@@ -28,4 +28,3 @@ class Pintura(models.Model):
     autor = models.CharField(max_length=50)
     estilo = models.CharField(max_length=50)
     valor = models.IntegerField()
-    en_venta = models.BooleanField()
