@@ -9,5 +9,7 @@ urlpatterns = [
     path("pintura/", views.pintura, name="pintura"),
     path("series/", views.series, name="series"),
     path("busqueda-premios/", views.busqueda_premios, name="busqueda-premios"),
-    path("buscar/", views.buscar, name="buscar")
+    path("buscar-premios/", views.buscar_premios, name="buscar-premios"),
+    path("busqueda-coleccion/", views.busqueda_coleccion, name="busqueda-coleccion"),
+    path("buscar-coleccion/", views.buscar_coleccion, name="buscar-coleccion")
 ]

@@ -95,12 +95,28 @@ def musica(req):
 def busqueda_premios(req):
     return render(req, "AppTerceraPreEntrega/busqueda-premios.html")
 
-def buscar(req):
+def buscar_premios(req):
     if req.GET["premios"]:
         premios = req.GET["premios"]
         musica = models.Musica.objects.filter(premios__icontains=premios)
 
         return render(req, 'AppTerceraPreEntrega/result-busqueda-premios.html', {"musica": musica, "premios": premios})
+    
+    else:
+        respuesta = "No se encuentra"
+
+    return HttpResponse(respuesta)
+
+
+def busqueda_coleccion(req):
+    return render(req, "AppTerceraPreEntrega/busqueda-coleccion.html")
+
+def buscar_coleccion(req):
+    if req.GET["coleccion"]:
+        coleccion = req.GET["coleccion"]
+        videojuegos = models.Videojuegos.objects.filter(coleccion__icontains=coleccion)
+
+        return render(req, 'AppTerceraPreEntrega/result-busqueda-coleccion.html', {"videojuegos": videojuegos, "coleccion": coleccion})
     
     else:
         respuesta = "No se encuentra"
