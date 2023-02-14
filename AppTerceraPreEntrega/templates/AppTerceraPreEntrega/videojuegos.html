@@ -1,0 +1,43 @@
+{% extends 'AppTerceraPreEntrega/base.html' %}
+
+{% block titulo %}
+    Videojuegos
+{% endblock titulo %}
+
+{% block header_text %}
+    Bienvenidos Videojuegos
+{% endblock header_text %}
+
+{% block contenido %}
+    <section class="features-icons bg-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>En esta página se concreta la adición de la información referente a videojuegos</h1>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-2">
+                        <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                        <h3>Añadir videojuegos favoritos</h3>
+                        <p class="lead mb-0">Tendrás la posibilidad de añadir tus videojuegos favoritos en nuestra base de datos !!</p>
+                    </div>
+                    <div class="col-lg-12">
+                        {% if formulario_videojuegos.errors %}
+                            <p style="color: red;">Datos erróneos</p>
+
+                        {% endif %} 
+
+                        <form action="{% url 'videojuegos' %}" method="post">
+                            {% csrf_token %}
+                            <table>
+                                {{ formulario_videojuegos.as_table }}
+                            </table>
+
+                            <input type="submit" value="Enviar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock contenido %}

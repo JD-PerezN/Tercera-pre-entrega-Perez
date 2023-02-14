@@ -1,0 +1,35 @@
+{% extends 'AppTerceraPreEntrega/base.html' %}
+
+{% block titulo %}
+    Pestaña Coleccion
+{% endblock titulo %}
+
+{% block header_text %}
+    Búsqueda colección videojuegos
+{% endblock header_text %}
+
+{% block contenido %}
+    <section class="features-icons bg-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>En esta página se valida aquellos videojuegos que se encuentran en una colección</h1>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-2">
+                        <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                        <h3>Búsqueda de videojuegos por coleccion</h3>
+                        <p class="lead mb-0">Te dejamos buscar las videojuegos por coleccion</p>
+                    </div>
+                    <div class="col-lg-12">
+                        <form action="{% url 'buscar-coleccion' %}" method="get">
+                            {% csrf_token %}
+                            <input type="number" name="coleccion" id="coleccion">
+                            <input type="submit" value="Buscar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock contenido %}
