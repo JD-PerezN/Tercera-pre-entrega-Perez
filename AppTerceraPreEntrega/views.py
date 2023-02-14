@@ -91,3 +91,18 @@ def musica(req):
         musica_form = forms.MusicaForm()
 
     return render(req, "AppTerceraPreEntrega/musica.html", {"formulario_musica": musica_form})
+
+def busqueda_premios(req):
+    return render(req, "AppTerceraPreEntrega/busqueda-premios.html")
+
+def buscar(req):
+    if req.GET["premios"]:
+        premios = req.GET["premios"]
+        musica = models.Musica.objects.filter(premios__icontains=premios)
+
+        return render(req, 'AppTerceraPreEntrega/result-busqueda-premios.html', {"musica": musica, "premios": premios})
+    
+    else:
+        respuesta = "No se encuentra"
+
+    return HttpResponse(respuesta)
