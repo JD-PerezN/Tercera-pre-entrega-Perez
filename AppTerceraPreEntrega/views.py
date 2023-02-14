@@ -122,3 +122,19 @@ def buscar_coleccion(req):
         respuesta = "No se encuentra"
 
     return HttpResponse(respuesta)
+
+
+def busqueda_valor(req):
+    return render(req, "AppTerceraPreEntrega/busqueda-valor.html")
+
+def buscar_valor(req):
+    if req.GET["valor"]:
+        valor = req.GET["valor"]
+        pintura = models.Pintura.objects.filter(valor__icontains=valor)
+
+        return render(req, 'AppTerceraPreEntrega/result-busqueda-valor.html', {"pintura": pintura, "valor": valor})
+    
+    else:
+        respuesta = "No se encuentra"
+
+    return HttpResponse(respuesta)
